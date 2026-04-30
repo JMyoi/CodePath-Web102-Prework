@@ -33,7 +33,7 @@ function addGamesToPage(games) {
             let card = document.createElement('div');
             card.classList.add('game-card');
             card.innerHTML = `
-                <img src = "${games[i].img}" width = "200" height = "200">
+                <img src = "${games[i].img}"  class = "game-img"">
                 <p> ${games[i].name}</p>
                 <p>${games[i].description}</p>
             `;
