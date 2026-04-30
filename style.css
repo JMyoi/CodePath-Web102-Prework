@@ -21,6 +21,8 @@ body {
 
 .stats-container {
     display: flex;
+    box-shadow: 0 0 30px;
+    cursor: pointer;
 }
 
 .stats-card {
