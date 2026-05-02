@@ -185,6 +185,7 @@ description.appendChild(paragraph);
  * Skills used: spread operator, destructuring, template literals, sort 
  */
 
+
 const firstGameContainer = document.getElementById("first-game");
 const secondGameContainer = document.getElementById("second-game");
 
@@ -192,8 +193,34 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
 
+console.log(sortedGames[0], "type of sorted games", typeof(sortedGames));
+const[firstGame, secondGame, ...rest] = sortedGames
 // use destructuring and the spread operator to grab the first and second games
+const { name: firstName, description: firstDescription, pledged: firstPledged, goal: firstGoal, backers: firstBackers, img: firstImg } = firstGame;
+console.log("first game: ", firstGame);
+const { name: secondName, description: secondDescription, pledged: secondPledged, goal: secondGoal, backers: secondBackers, img: secondImg } = secondGame;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+let topFunded = document.createElement("div");
+topFunded.classList.add('game-card');
+topFunded.innerHTML = `
+    <img src = "${firstImg}" class = "game-img">
+    <p>${firstName}</p>
+    <p>${firstDescription}</p>
+`;
+firstGameContainer.appendChild(topFunded);
+
+
+let runnerUp = document.createElement("div");
+runnerUp.classList.add('game-card');
+runnerUp.innerHTML = `
+    <img src = "${secondImg}" class = "game-img">
+    <p>${secondName}</p>
+    <p>${secondDescription}</p>
+`;
+secondGameContainer.appendChild(runnerUp);
+
+
+
 
 // do the same for the runner up item
